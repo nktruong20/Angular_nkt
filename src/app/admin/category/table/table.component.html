@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-12">
+        <button type="button" class="btn btn-info ms-3" routerLink="/admin/create-category">
+      <i class="fa-solid fa-plus"></i> Thêm mới sản phẩm
+    </button>
+        <div class="card mb-4">
+            <div class="card-header pb-0">
+                <h6>Bảng danh mục</h6>
+            </div>
+
+            <div class="card-body px-0 pt-0 pb-2">
+                <div class="table-responsive p-0">
+                    <table class="table align-items-center justify-content-center mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    STT
+                                </th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    ID
+                                </th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                    Name
+                                </th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                    Status
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let cat of listCate; let i = index">
+                                <td>
+                                    <p class="text-sm font-weight-bold mb-0 text-left ms-3">
+                                        {{ i + 1 }}
+                                    </p>
+                                </td>
+                                <td>
+                                    <p class="text-sm font-weight-bold mb-0">{{ cat.id }}</p>
+                                </td>
+                                <td>
+                                    <p class="text-sm font-weight-bold mb-0">{{ cat.name }}</p>
+                                </td>
+                                <td>
+                                    <p class="text-sm font-weight-bold mb-0">
+                                        {{ cat.status == 0 ? "Hiển thị" : "Tạm ẩn" }}
+                                    </p>
+                                </td>
+                                <td class="align-middle">
+                                    <button type="button" routerLink="/admin/update-category/{{cat.id}}" class="btn btn-success">
+                    <i class="fa-solid fa-edit"></i>
+                  </button>
+                                    <button type="button" (click)="delete(cat.id)" class="btn btn-danger ms-2">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="container-fluid px-md-5" *ngIf="tour">
+    <div class="row my-5 ">
+        <div class="col-lg-5">
+            <div class="boxImg">
+                <img src="http://localhost:3000/uploads/{{tour.image}}" class="card-img" alt="">
+            </div>
+        </div>
+        <div class="col-lg-7 ps-lg-5 mt-lg-0 mt-4">
+            <div class="boxInfo">
+                <h2>{{tour.name}} <span class="text-muted btn rounded-pill border" *ngIf="tour.sale_price > 0"><i class="fa-solid fa-tags"></i> Sale: {{(tour.sale_price*100/tour.price).toFixed()}}%</span></h2>
+                <h5 *ngIf="tour.sale_price > 0; else elsePrice">Giá: <span class="text-decoration-line-through">{{tour.price}}đ</span> <span class="text-muted"> / {{tour.price - tour.sale_price}}đ </span></h5>
+                <h5>Khu vực: {{tour.cat_name}}</h5>
+                <h5>Mô Tả: <span class="fw-normal">{{tour.description}}</span></h5>
+                <ng-template #elsePrice>
+                    <h6>Giá: {{tour.price}}đ</h6>
+                </ng-template>
+                <div class="mt-4 text-center">
+                    <button type="button" class="btn btn-primary button">Mua ngay</button>
+                    <div class="d-inline-block" *ngIf="acc_login">
+                        <button type="button" (click)="addFavorite(tour.id)" *ngIf="!checkFavor; else elseFavor" class="btn btn-danger button ms-2"><i class="fa-solid fa-star"></i> <span class="d-none d-md-inline"> Yêu thích</span> </button>
+                        <ng-template #elseFavor>
+                            <button type="button" (click)="deleteFavorite(tour.id)" class="btn btn-warning button ms-2"><i class="fa-solid fa-star"></i> <span class="d-none d-md-inline"> Đã thích</span> </button>
+                        </ng-template>
+                        <button type="button" class="btn btn-info text-light button ms-2"><i class="fa-solid fa-cart-shopping"></i> <span class="d-none d-md-inline"> Thêm vào giỏ hàng</span></button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,102 @@
+.logo {
+    width: 80px;
+}
+
+.fontLogo {
+    font-family: 'Pacifico', cursive;
+}
+
+.bgHeader {
+    background-image: linear-gradient(to bottom, rgb(0, 0, 0), rgba(0, 0, 0, 0.701));
+}
+
+.dropMenu {
+    position: absolute;
+    width: 100% !important;
+    min-width: 100px !important;
+    transform: translate3d(7px, 59px, 0px) !important;
+    margin-top: 0 !important;
+}
+
+.dropMenuMobile {
+    position: absolute;
+    width: 100% !important;
+    min-width: 100px !important;
+    transform: translate3d(15px, 235px, 0px)
+}
+
+.dropMenu a,
+.dropMenuMobile a {
+    border-bottom: 1px solid rgb(228, 228, 228);
+    cursor: pointer;
+    margin-bottom: 0px;
+}
+
+.dropMenu a:last-child,
+.dropMenuMobile a:last-child {
+    border-bottom: none;
+}
+
+.navItemActive {
+    background-color: rgb(45, 45, 45);
+    box-shadow: 0px 0px 6px 2px rgba(255, 255, 255, 0.251);
+}
+
+.navItem {
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    padding: 15px 15px;
+    border-radius: 10px;
+}
+
+.navItem:last-child {
+    margin-left: 10px;
+}
+
+.navItem:hover {
+    background-color: rgb(45, 45, 45);
+    box-shadow: 0px 0px 6px 2px rgba(255, 255, 255, 0.251);
+}
+
+.totalNum {
+    position: absolute;
+    font-weight: bold;
+    cursor: pointer;
+    color: #000;
+    background-color: yellow;
+    top: 10px;
+    right: 0px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px
+}
+
+.deleteFavor {
+    padding: 5px;
+    font-size: 12px;
+    position: absolute;
+    top: 0px;
+    right: 3px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+    .navItem {
+        font-size: 14px;
+        padding: 7px;
+    }
+    .navItem:last-child {
+        margin-left: 7px;
+    }
+    .totalNum {
+        font-size: 12px;
+        width: 15px;
+        height: 15px;
+        line-height: 15px;
+        top: 3px;
+        right: -3px;
+    }
+}

@@ -1,0 +1,117 @@
+.fontLogo {
+    font-family: 'Pacifico', cursive;
+}
+
+.boxBanner {
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    color: rgb(251, 101, 138);
+    width: 60%;
+    background-color: rgba(0, 0, 0, 0.44);
+    transform: translate(-50%, 0%);
+    padding: 50px;
+    border-radius: 40px;
+}
+
+.imgBanner {
+    height: 700px;
+}
+
+.boxImg img {
+    height: 100%;
+    width: 100%;
+}
+
+.boxImg {
+    height: 280px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.cardNewItem {
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.cardNewItem:hover {
+    box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.327);
+}
+
+.cardNewItem:hover .boxImg {
+    border-radius: 20px 20px 0px 0px;
+    transition: 2000ms;
+}
+
+.cardNewItem:hover .infoItem {
+    opacity: 1;
+    transition: 1000ms;
+}
+
+.infoItem {
+    opacity: 0;
+}
+
+.cardNewItem:hover img {
+    transform: scale(120%);
+    transition: 2000ms;
+}
+
+.optionBox {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0px 20px 0px 0px;
+    overflow: hidden;
+}
+
+.optionBox button {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.167);
+}
+
+.optionBox button:hover {
+    color: aqua;
+    background-color: rgba(0, 0, 0, 0.447);
+}
+
+.active {
+    color: rgb(0, 255, 255) !important;
+}
+
+@media screen and (max-width: 1024px) {
+    .imgBanner {
+        height: 700px;
+    }
+    .boxBanner {
+        width: 70%;
+    }
+    .boxImg {
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .imgBanner {
+        height: 550px;
+    }
+    .boxBanner {
+        width: 80%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .imgBanner {
+        height: 350px;
+    }
+    .boxBanner {
+        width: 80%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .boxImg {
+        height: 220px;
+    }
+}

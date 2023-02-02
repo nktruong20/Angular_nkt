@@ -1,0 +1,13 @@
+.fontLogo {
+    font-family: 'Pacifico', cursive;
+}
+
+.bgRegister {
+    background-image: url('http://localhost:3000/images/bgRegister.jpg');
+    background-size: 100% 100%;
+}
+
+.body {
+    padding-top: 50px;
+    padding-bottom: 100px;
+}

@@ -1,0 +1,34 @@
+.bgLogin {
+    background-image: url('http://localhost:3000/images/bgLogin.jpeg');
+    height: 800px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.slogan {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.504);
+    padding: 60px 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    font-family: 'Pacifico', cursive;
+    border-radius: 40px;
+}
+
+.input {
+    border-color: blueviolet !important;
+    border-radius: 10px;
+}
+
+.forget {
+    cursor: pointer;
+    color: rgb(93, 93, 93);
+}
+
+.submit {
+    margin-top: 20px;
+    background: blueviolet;
+    color: #fff;
+}

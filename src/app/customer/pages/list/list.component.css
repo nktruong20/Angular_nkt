@@ -1,0 +1,92 @@
+.fontLogo {
+    font-family: 'Pacifico', cursive;
+}
+
+.banner {
+    background-image: url('http://localhost:3000/images/bannerlist.webp');
+    background-size: cover;
+    padding: 60px 0px;
+}
+
+.inputSearch {
+    background-color: rgba(255, 255, 255, 0.175);
+    color: #fff !important;
+    border-radius: none;
+    padding: 10px 20px;
+    font-size: 24px;
+    border: 1px solid greenyellow;
+    margin-bottom: 10px;
+}
+
+.boxImg img {
+    height: 100%;
+    width: 100%;
+}
+
+.boxImg {
+    height: 280px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.cardNewItem {
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.cardNewItem:hover {
+    box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.327);
+}
+
+.cardNewItem:hover .boxImg {
+    border-radius: 20px 20px 0px 0px;
+    transition: 2000ms;
+}
+
+.cardNewItem:hover .infoItem {
+    opacity: 1;
+    transition: 1000ms;
+}
+
+.infoItem {
+    opacity: 0;
+}
+
+.cardNewItem:hover img {
+    transform: scale(120%);
+    transition: 2000ms;
+}
+
+.optionBox {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0px 20px 0px 0px;
+    overflow: hidden;
+}
+
+.optionBox button {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.167);
+}
+
+.optionBox button:hover {
+    color: aqua;
+    background-color: rgba(0, 0, 0, 0.447);
+}
+
+.active {
+    color: rgb(0, 255, 255) !important;
+}
+
+@media screen and (max-width: 1024px) {
+    .boxImg {
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .boxImg {
+        height: 220px;
+    }
+}

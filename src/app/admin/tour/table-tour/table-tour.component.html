@@ -1,0 +1,91 @@
+<div class="row">
+    <div class="col-12">
+        <button type="button" class="btn btn-info ms-3" routerLink="/admin/create-tour">
+      <i class="fa-solid fa-plus"></i> Thêm mới Tour du lịch
+    </button>
+        <div class="card mb-4">
+            <div class="card-header pb-0">
+                <h6>Bảng Tour du lịch</h6>
+            </div>
+
+            <div class="card-body px-0 pt-0 pb-2">
+                <div class="table-responsive p-0">
+                    <table class="table align-items-center justify-content-center mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    STT
+                                </th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    ID
+                                </th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                    Name
+                                </th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Image
+                                </th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Price
+                                </th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Sale Price
+                                </th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                    Status
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let tour of tours; let i = index">
+                                <td>
+                                    <p class="text-sm font-weight-bold mb-0 text-left ms-3">
+                                        {{ i + 1 }}
+                                    </p>
+                                </td>
+                                <td>
+                                    <p class="text-sm font-weight-bold mb-0">{{ tour.id }}</p>
+                                </td>
+                                <td>
+                                    <p class="text-sm font-weight-bold mb-0">{{ tour.name }}</p>
+                                </td>
+                                <td>
+                                    <div>
+                                        <img src="http://localhost:3000/uploads/{{ tour.image }}" class="avatar avatar-sm rounded-circle me-2" alt="spotify" />
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="text-sm font-weight-bold mb-0">{{ tour.price }}</p>
+                                </td>
+                                <td>
+                                    <p class="text-sm font-weight-bold mb-0">
+                                        {{ tour.sale_price }}
+                                    </p>
+                                </td>
+                                <td>
+                                    <p class="text-sm font-weight-bold mb-0">
+                                        {{ tour.cat_name }}
+                                    </p>
+                                </td>
+                                <td>
+                                    <p class="text-sm font-weight-bold mb-0">
+                                        {{ tour.status == 0 ? "Hiển thị" : "Tạm ẩn" }}
+                                    </p>
+                                </td>
+                                <td class="align-middle">
+                                    <button type="button" routerLink="/admin/update-tour/{{ tour.id }}" class="btn btn-success">
+                    <i class="fa-solid fa-edit"></i>
+                  </button>
+                                    <button type="button" (click)="delete(tour.id)" class="btn btn-danger ms-2">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

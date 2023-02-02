@@ -1,0 +1,55 @@
+<div class="banner">
+    <div class="col-md-12">
+        <div class="h-100 p-5 text-white rounded-3">
+
+            <div class="col-lg-4 col-md-6 col-11 mx-auto">
+                <h1 class="text-center fontLogo mt-5">Chúc bạn chọn được cho mình chuyến đi phù hợp</h1>
+                <form action="" method="post" class="text-center" (ngSubmit)="search()">
+                    <h5 for="" class="text-light mt-4 text-start">Tìm kiếm</h5>
+                    <input type="text" name="search" class="form-control inputSearch text-light" [(ngModel)]="keyword" placeholder="Tìm kiếm" aria-describedby="helpId">
+                    <button type="submit" class="btn btn-dark py-3 border border-light rounded-0 px-5 mb-5"><i class=" fa-solid fa-magnifying-glass "></i> Tìm kiếm</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid px-5">
+    <div class="filterBar mt-5">
+        <span class="px-2 py-1 border border-dark fw-bold fs-4 rounded-3 bg-dark text-light"><i class="fa-solid fa-filter"></i> Bộ lọc</span>
+        <select #selectCate (change)="getListTourByCategory(selectCate.value)" class=" py-1 px-2 fs-4 rounded-3 ms-4">
+            <option label  >-- Danh mục --</option>
+            <option value="all" >Tất cả</option>
+            <option [value]="item.id" *ngFor="let item of allCate" >{{item.name}}</option>
+        </select>
+
+    </div>
+    <div class="all">
+        <h2 class="text-center fontLogo mt-5">Tất cả các Tour</h2>
+        <div class="row">
+            <div class="col-lg-3 col-md-4 mb-4" *ngFor="let item of allTour">
+                <div class="cardNewItem position-relative">
+                    <div class="contentItem" routerLink="/detail/{{item.id}}">
+                        <div class="boxImg">
+                            <img src="http://localhost:3000/uploads/{{item.image}}" class="card-img imgNewTour" alt="">
+                        </div>
+                        <h4 class="text-center mt-2">{{item.name}} <span class="text-muted btn rounded-pill border" *ngIf="item.sale_price > 0"><i class="fa-solid fa-tags"></i> Sale: {{(item.sale_price*100/item.price).toFixed()}}%</span></h4>
+                        <div class="infoItem px-2 py-2 text-center">
+                            <h6 *ngIf="item.sale_price > 0; else elsePrice">Giá: <span class="text-decoration-line-through">{{item.price}}đ</span> <span class="text-muted"> / {{item.price - item.sale_price}}đ </span></h6>
+                            <ng-template #elsePrice>
+                                <h6>Giá: {{item.price}}đ</h6>
+                            </ng-template>
+                        </div>
+                    </div>
+                    <div class="optionBox" *ngIf="acc_login">
+                        <button type="button" class="btn active" (click)="deleteFavorite(item.id)" *ngIf="item.favor == 3; else elseFavor"><i class="fa-solid fa-star "></i> Đã Thích</button>
+                        <ng-template #elseFavor>
+                            <button type="button" (click)="addFavorite(item.id)" class="btn"><i class="fa-solid fa-star "></i> Yêu Thích</button>
+                        </ng-template>
+                        <br>
+                        <button type="button " class="btn mt-1 "><i class="fa-solid fa-cart-shopping "></i> Giỏ hàng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,110 @@
+<nav class="navbar-expand-sm navbar-dark py-2 bgHeader">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-3 col-4">
+                <div class="logo " routerLink="/">
+                    <img class="card-img d-md-block d-none" src="http://localhost:3000/images/logo.png" alt="">
+                    <h6 class="text-light text-center fontLogo mt-1">GoTravel</h6>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-3 d-lg-block d-none">
+                <ul class="mt-2 mt-lg-0 text-center mb-0">
+                    <li class="nav-item  d-inline-block">
+                        <a class="nav-link navItem" aria-current="page " routerLink="/">Trang chủ <span class="visually-hidden ">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown d-inline-block position-relative">
+                        <a class="nav-link dropdown-toggle  navItem" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tour Du lịch</a>
+                        <div class="dropdown-menu dropMenu" aria-labelledby="dropdownId">
+                            <a class="dropdown-item px-1 py-2 ps-2" routerLink="/list">Tất cả</a>
+                            <a class="dropdown-item px-1 py-2 ps-2" routerLink="/list/{{cate.id}}" *ngFor="let cate of categories">{{cate.name}}</a>
+                        </div>
+                    </li>
+                    <li class="nav-item d-inline-block">
+                        <a class="nav-link  navItem">Về chúng tôi</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-9 col-4 d-lg-none d-block text-end">
+                <li class="nav-item d-inline-block" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions">
+                    <a class="nav-link  navItem ms-0">Menu</a>
+                </li>
+            </div>
+            <div class="col-lg-3 col-md-3 col-4 ">
+                <ul class=" mt-lg-0 text-end mb-0 ps-0">
+                    <li class="nav-item d-inline-block " routerLink="/login" *ngIf="!isUserLoggedIn">
+                        <a class="nav-link  navItem ms-0">Đăng Nhập</a>
+                    </li>
+                    <li class="nav-item d-inline-block position-relative" *ngIf=" isUserLoggedIn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightFavor" aria-controls="offcanvasRight">
+                        <a class="nav-link navItem "><i class="fa-solid fa-star "></i></a>
+                        <span class="totalNum " *ngIf=" totalFavor">{{totalFavor}}</span>
+                    </li>
+                    <li class="nav-item d-inline-block " *ngIf="isUserLoggedIn " data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                        <a class="nav-link navItem "><i class="fa-solid fa-user "></i></a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</nav>
+<div class="offcanvas offcanvas-start " data-bs-scroll="true " tabindex="-1 " id="offcanvasWithBothOptions " aria-labelledby="offcanvasWithBothOptionsLabel ">
+    <div class="offcanvas-header ">
+        <h5 class="offcanvas-title fontLogo " id="offcanvasWithBothOptionsLabel ">Wellcome to GoTravel</h5>
+        <button type="button " class="btn-close " data-bs-dismiss="offcanvas " aria-label="Close "></button>
+    </div>
+    <div class="offcanvas-body ">
+        <div class="list-group ">
+            <button type="button " data-bs-dismiss="offcanvas " class="list-group-item list-group-item-action " *ngIf="!isUserLoggedIn "><i class="fa-solid fa-circle-user "></i> Đăng Nhập</button>
+            <button type="button " data-bs-dismiss="offcanvas " class="list-group-item list-group-item-action " *ngIf="isUserLoggedIn "><i class="fa-solid fa-user "></i> Thông tin tài khoản</button>
+            <button type="button " data-bs-dismiss="offcanvas " class="list-group-item list-group-item-action " *ngIf="isUserLoggedIn "><i class="fa-solid fa-star "></i> Yêu thích</button>
+        </div>
+        <!-- Hover added -->
+        <div class="list-group mt-4 position-relative ">
+            <button type="button " data-bs-dismiss="offcanvas " class="list-group-item list-group-item-action ">Trang chủ</button>
+            <button type="button " data-bs-dismiss="offcanvas " class="list-group-item list-group-item-action dropdown-toggle" id="dropdownIdMobile" data-bs-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">Tour Du lịch</button>
+            <div class="dropdown-menu dropMenuMobile " aria-labelledby="dropdownIdMobile ">
+                <a class="dropdown-item px-1 ps-2 " data-bs-dismiss="offcanvas " *ngFor="let cate of categories ">{{cate.name}}</a>
+            </div>
+            <button type="button " data-bs-dismiss="offcanvas " class="list-group-item list-group-item-action ">Về chúng tôi</button>
+            <button type="button " data-bs-dismiss="offcanvas " class="list-group-item list-group-item-action " (click)="logout() " *ngIf="isUserLoggedIn ">Đăng Xuất</button>
+        </div>
+    </div>
+</div>
+
+<div class="offcanvas offcanvas-end " *ngIf="isUserLoggedIn " tabindex="-1 " id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header ">
+        <h5 id="offcanvasRightLabel ">Xin chào: {{acc_login.name}}</h5>
+        <button type="button " class="btn-close text-reset " data-bs-dismiss="offcanvas" aria-label="Close "></button>
+    </div>
+    <div class="offcanvas-body ">
+        <div class="list-group ">
+            <a class="list-group-item list-group-item-action "><i class="fa-solid fa-user"></i> Hồ sơ</a>
+            <a class="list-group-item list-group-item-action "><i class="fa-solid fa-wrench"></i> Chỉnh sửa</a>
+            <a class="list-group-item list-group-item-action "><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng</a>
+            <a class="list-group-item list-group-item-action " data-bs-dismiss="offcanvas" (click)="logout() "><i class="fa-solid fa-right-from-bracket"></i> Đăng Xuất</a>
+        </div>
+    </div>
+</div>
+
+<div class="offcanvas offcanvas-end " *ngIf="isUserLoggedIn" tabindex="-1 " id="offcanvasRightFavor" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header ">
+        <h5 id="offcanvasRightLabel ">Danh sách yêu thích</h5>
+        <button type="button " class="btn-close text-reset " data-bs-dismiss="offcanvas" aria-label="Close "></button>
+    </div>
+    <div class="offcanvas-body ">
+        <div class="card mb-2 position-relative " *ngFor="let favor of favorties ">
+            <div class="row ">
+                <div class="col-4 ">
+                    <img class="card-img-top " height="100% " src="http://localhost:3000/uploads/{{favor.image}} " alt="Title ">
+                </div>
+                <div class="col-8 ">
+                    <div class="card-body ">
+                        <h6 class="card-title mb-0 " data-bs-dismiss="offcanvas">{{favor.name}}</h6>
+                        <p class="card-text mb-0 ">{{favor.price - favor.sale_price}} VNĐ</p>
+                    </div>
+                </div>
+            </div>
+            <span class="deleteFavor " (click)="deleteFavorite(favor.id) "><i class="fa-solid fa-x "></i></span>
+        </div>
+    </div>
+</div>
