@@ -1,6 +1,7 @@
 .bgLogin {
-    background-image: url('http://localhost:3000/images/bgLogin.jpeg');
+    background-image: url('http://localhost:3000/uploads/c300.jpg');
     height: 800px;
+    /* width: 100%; */
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
@@ -15,6 +16,7 @@
     transform: translate(-50%, -70%);
     font-family: 'Pacifico', cursive;
     border-radius: 40px;
+    display: none;
 }
 
 .input {

@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
     password: new FormControl('',[
       Validators.required
     ]),
-    role: new FormControl('customer')
+    // role: new FormControl('customer')
   })
   duplicateEmail:any;
   constructor(private accSer: AccountService, private router: Router) { }

@@ -39,8 +39,8 @@ export class TourService {
   getSale(){
     return this.http.get(`${API}/sale-tour`);
   }
-  getItem(id:any){
-    return this.http.get(`${API}/getTour/${id}`);
+  getItem(id:number){
+    return this.http.get(`${API}/tour/${id}`);
   }
   create(data:any){
     return this.http.post(`${API}/tour`,data)

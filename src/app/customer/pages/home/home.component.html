@@ -2,13 +2,13 @@
     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="5000">
-                <img src="http://localhost:3000/images/banner1.jpg" class="d-block w-100 imgBanner" alt="banner1.jpg" />
+                <img src="http://localhost:3000/uploads/mer1.jpg" class="d-block w-100 imgBanner" alt="banner1.jpg" />
             </div>
             <div class="carousel-item" data-bs-interval="5000">
-                <img src="http://localhost:3000/images/banner2.jpg" class="d-block w-100 imgBanner" alt="banner2.jpg" />
+                <img src="http://localhost:3000/uploads/c300.jpg" class="d-block w-100 imgBanner" alt="banner2.jpg" />
             </div>
             <div class="carousel-item" data-bs-interval="5000">
-                <img src="http://localhost:3000/images/banner3.jpg" class="d-block w-100 imgBanner" alt="banner3.jpg" />
+                <img src="http://localhost:3000/uploads/Mere250.webp" class="d-block w-100 imgBanner" alt="banner3.jpg" />
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
@@ -20,24 +20,11 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-    <div class="boxBanner">
-        <h1 class="fontLogo text-center">Chào mừng bạn đã đến với GoTravel</h1>
-        <h3 class="text-center d-lg-block d-none">
-            GoTravel được thành lập từ năm 2003 với mục tiêu hỗ trợ, phổ cập kiến thức văn hóa vùng miền của mọi miền đất nước Việt Nam thông qua hình thức du lịch. Trải qua 20 năm hân hạnh đồng hành cùng người dân Việt Nam. GoTravel trở thành người bạn đáng tin
-            cậy của mọi gia đình, người thân của những ai có niềm đam mê du lịch trên mảnh đất hình chứ S tươi đẹp.
-        </h3>
-        <h3 class="text-center d-lg-block d-none">
-            GoTravel cam kết mang lại cho bạn trải nhiệm du lịch thú vị, an toàn, chuyên nghiệp cùng kiến thức văn hóa, của từng vùng miền nơi bạn tham quan.
-        </h3>
-        <h2 class="fontLogo text-center mb-0 d-lg-block d-none">
-            Cuối cùng
-        </h2>
-        <h2 class="fontLogo text-center">Chúc bạn tìm được cho mình 1 chuyến đi vui vẻ!</h2>
-    </div>
+    
 </div>
 <div class="container-fluid px-5">
     <div class="newTour">
-        <h2 class="text-center fontLogo mt-5">Tour mới nhất</h2>
+        <h2 class="text-center fontLogo mt-5">Best selling cars</h2>
         <div class="row">
             <div class="col-md-4 mb-4" *ngFor="let item of newTour">
                 <div class="cardNewItem position-relative">
@@ -59,7 +46,7 @@
         </div>
     </div>
     <div class="all">
-        <h2 class="text-center fontLogo mt-5">Tất cả các Tour</h2>
+        <h2 class="text-center fontLogo mt-5">all cars</h2>
         <div class="row">
             <div class="col-lg-3 col-md-4 mb-4" *ngFor="let item of allTour">
                 <div class="cardNewItem position-relative">
@@ -81,7 +68,6 @@
                             <button type="button" (click)="addFavorite(item.id)" class="btn"><i class="fa-solid fa-star "></i> Yêu Thích</button>
                         </ng-template>
                         <br>
-                        <button type="button " class="btn mt-1 "><i class="fa-solid fa-cart-shopping "></i> Giỏ hàng</button>
                     </div>
                 </div>
             </div>

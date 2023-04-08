@@ -11,6 +11,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { DetailComponent } from './pages/detail/detail.component';
 import { ListComponent } from './pages/list/list.component';
+import { DetailsComponent } from './pages/details/details.component';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { ListComponent } from './pages/list/list.component';
     RegisterComponent,
     LoginComponent,
     DetailComponent,
-    ListComponent
+    ListComponent,
+    DetailsComponent
   ],
   imports: [
     CommonModule,
